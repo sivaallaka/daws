@@ -1,5 +1,5 @@
 - name: configure backend
-  hosts:
+  hosts: backend
   become: true
   vars:
 
