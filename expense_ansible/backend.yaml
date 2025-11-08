@@ -14,8 +14,11 @@
 
   - name: install nodejs 20
     ansible.builtin.dnf:
-      name: nodejs
+      name: "{{ item }}"
       state: installed
+    loop: 
+    - mysql 
+    - nodejs
   - name: create user 
     ansible.builtin.user:
       name: Expense
