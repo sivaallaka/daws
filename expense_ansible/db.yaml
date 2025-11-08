@@ -21,9 +21,8 @@
       login_password: ExpenseApp@1
       login_host: 172.31.18.112
       filter: version
-      ignore_errors: True
-
-      register: mysql-connection-info
+    ignore_errors: true
+    register: mysql-connection-info
 
   - name: check output error 
     ansible.builtin.debug:
