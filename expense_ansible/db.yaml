@@ -6,14 +6,14 @@
   tasks:
   - name: install mysql server
     ansible.builtin.dnf:
-      - name: mysql-server
-        state: installed
+      name: mysql-server
+      state: installed
   
   - name: restart and enable server
     ansible.builtin.service:
-      - name: mysqld
-        state: restart
-        enabled: yes
+      name: mysqld
+      state: started
+      enabled: yes
 
   - name: check my db connection
     community.mysql.mysql_info:
@@ -24,4 +24,3 @@
       ignore_errors: True
 
       register: mysql-connection-info
-      
