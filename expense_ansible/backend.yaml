@@ -2,8 +2,9 @@
   hosts: backend
   become: true
   vars:
-
-
+    login_user: root
+    login_password: ExpenseApp@1
+    login_host: 172.31.18.112
   tasks:
   - name: disbale node js
     ansible.builtin.command: dnf module disable nodejs -y
@@ -43,4 +44,25 @@
     ansible.builtin.copy:
       src: backend.service
       dest: /etc/systemd/system/backend.service
-      
+  - name: install mysql dependencies
+    ansible.builtin.pip:
+      name: PyMySQL
+
+  - name: check my db connection
+    community.mysql.mysql_db:
+      login_user: "{{ login_user }}"
+      login_password: "{{ PASSOWRD }}"
+      login_host: "{{ login_host }}"
+      target: /app/schema/backend.sql
+      state: import
+
+  - name: reload system daemon
+    ansible.builtin.systemd_service:
+      daemon_reload: true
+
+  - name: restart and enable server
+    ansible.builtin.service:
+      name: backend
+      state: started
+      enabled: yes
+    
