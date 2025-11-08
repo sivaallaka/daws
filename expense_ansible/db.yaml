@@ -16,7 +16,7 @@
       enabled: yes
 
   - name: install mysql dependencies
-    ansible.builtin.dnf:
+    ansible.builtin.pip:
       name: PyMySQL
 
   - name: check my db connection
