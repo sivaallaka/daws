@@ -15,6 +15,10 @@
       state: started
       enabled: yes
 
+  - name: install mysql dependencies
+    ansible.builtin.dnf:
+      name: PyMySQL
+
   - name: check my db connection
     community.mysql.mysql_info:
       login_user: root
