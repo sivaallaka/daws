@@ -16,7 +16,7 @@
       name: nodejs
       state: installed
   - name: create user 
-    ansible.bultin.user:
+    ansible.builtin.user:
       name: Expense
 
   - name: create directory
