@@ -33,3 +33,14 @@
       src: /tmp/backend.zip
       dest: /app 
       remote_src: yes
+
+  - name: install npm
+    ansible.builtin.command: npm install
+    args:
+      chdir: /app
+
+  - name: copy backend service file 
+    ansible.builtin.copy:
+      src: backend.service
+      dest: /etc/systemd/system/backend.service
+      
