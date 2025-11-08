@@ -22,8 +22,8 @@
       login_host: 172.31.18.112
       filter: version
     ignore_errors: true
-    register: mysql-connection-info
+    register: mysql_connection_info
 
   - name: check output error 
     ansible.builtin.debug:
-      msg: "output is: {{ mysql-connection-info }}"
+      msg: "output is: {{ mysql_connection_info }}"
