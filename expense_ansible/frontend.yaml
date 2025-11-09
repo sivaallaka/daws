@@ -17,13 +17,13 @@
 
   - name: remove content from html page
     ansible.builtin.file:
-    path: /usr/share/nginx/html/
-    state: absent 
+      path: /usr/share/nginx/html/
+      state: absent 
 
   - name: create html folder
     ansible.builtin.file:
-    path: /usr/share/nginx/html/
-    state: directory
+      path: /usr/share/nginx/html/
+      state: directory
 
   - name: download frontend content 
     ansible.builtin.unarchive:
