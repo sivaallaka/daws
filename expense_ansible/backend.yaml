@@ -4,7 +4,7 @@
   vars:
     login_user: root
     login_password: ExpenseApp@1
-    login_host: 172.31.18.112
+    login_host: 172.31.21.81
   tasks:
   - name: disbale node js
     ansible.builtin.command: dnf module disable nodejs -y

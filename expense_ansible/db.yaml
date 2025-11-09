@@ -3,7 +3,7 @@
   become: yes
   vars:
     login_user: root
-    login_host: 172.31.18.112
+    login_host: 172.31.21.81
 
   vars_prompt:
   - name: PASSOWRD
